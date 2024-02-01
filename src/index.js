@@ -20,7 +20,7 @@ const app = express();
 
 // it is loaded first :important
 dotenv.config({
-    path: './env'
+    path: './.env'
 });
 
 
