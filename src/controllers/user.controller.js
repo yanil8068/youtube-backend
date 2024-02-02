@@ -39,19 +39,23 @@ const {fullName, email, username, password } = req.body
     }
 
     const avatarLocalPath = req.files?.avatar[0]?.path;
-    // const coverImageLocalPath = req.files?.coverImage[0]?.path;
+     // const coverImageLocalPath = req.files?.coverImage[0]?.path;
 
-    let coverImageLocalPath;
+     let coverImageLocalPath;
+
     if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
-        coverImageLocalPath = req.files.coverImage[0].path
+         coverImageLocalPath = req.files.coverImage[0].path;
+         console.log(coverImageLocalPath)
     }
 
     if (!avatarLocalPath) {
         throw new ApiError(400, "Avatar file is required")
     }
 
+ 
+
     const avatar = await uploadOnCloudinary(avatarLocalPath)
-    const coverImage = await uploadOnCloudinary(coverImageLocalPath)
+    const coverImage = await uploadOnCloudinary(coverImageLocalPath);
 
     if (!avatar) {
         throw new ApiError(400, "Avatar file is required")
