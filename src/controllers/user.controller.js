@@ -45,7 +45,7 @@ const {fullName, email, username, password } = req.body
 
     if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
          coverImageLocalPath = req.files.coverImage[0].path;
-         console.log(coverImageLocalPath)
+        // console.log(coverImageLocalPath)
     }
 
     if (!avatarLocalPath) {
